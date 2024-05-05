@@ -14,8 +14,8 @@ const usePeer = () => {
       let myPeer;
       (async function initPeer() {
         myPeer = new Peer({
+          secure: true,
           host: import.meta.env.VITE_PEER_HOST,
-          port: import.meta.env.VITE_PEER_PORT,
           path: "/peerjs",
         });
         setPeer(myPeer);
