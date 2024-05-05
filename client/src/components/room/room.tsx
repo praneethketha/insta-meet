@@ -237,10 +237,12 @@ const RoomInfo: FC<Props> = ({
                     Share the following meeting link with others
                   </p>
                   <div className="flex items-center gap-2 p-2.5 bg-gray-100 rounded">
-                    <p className="truncate text-gray-500 text-[0.8rem] flex-1">{`instameet.com/${roomId}`}</p>
+                    <p className="truncate text-gray-500 text-[0.8rem] flex-1">{`insta-meet.netlify.app/${roomId}`}</p>
                     <Copy
                       className="w-4 h-4 text-gray-400 cursor-pointer"
-                      onClick={() => handleCopy(`instameet.com/${roomId}`)}
+                      onClick={() =>
+                        handleCopy(`https://insta-meet.netlify.app/${roomId}`)
+                      }
                     />
                   </div>
                 </section>
