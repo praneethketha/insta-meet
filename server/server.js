@@ -1,21 +1,24 @@
 const socketio = require("socket.io");
 const cors = require("cors");
 const express = require("express");
+const dotenv = require("dotenv");
+dotenv.config({ path: ".env" });
 
 const app = express();
 const expressServer = require("http").createServer(app);
+const originURL = process.env.ORIGIN_URL;
 
 const io = socketio(expressServer, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: originURL,
     methods: ["GET", "POST"],
   },
 });
 
-app.use(cors({ origin: "http://localhost:5173", methods: ["GET", "POST"] }));
-app.use(express.json()) // for parsing application/json
+app.use(cors({ origin: originURL, methods: ["GET", "POST"] }));
+app.use(express.json());
 
-expressServer.listen(8181, () => {
+expressServer.listen(process.env.PORT || 8181, () => {
   console.log("Server is listening port 8181");
 });
 

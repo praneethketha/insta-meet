@@ -15,7 +15,7 @@ export default function Home() {
     try {
       const roomId = uuid();
 
-      const res = await fetch(`http://localhost:8181/room`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/room`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ roomId: roomId }),
@@ -35,7 +35,9 @@ export default function Home() {
   const handleJoinRoom = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8181/room/${roomId}`);
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/room/${roomId}`
+      );
       const body = await res.text();
       if (res.status === 200) {
         navigate(`/${roomId}`);

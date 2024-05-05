@@ -12,8 +12,7 @@ export const SocketProvider:FC<PropsWithChildren> = ({children}) => {
   const [socket, setSocket] = useState<Socket>();
 
   useEffect(() => {
-    const connection = io("http://localhost:8181");
-    console.log("socket connection", connection);
+    const connection = io(import.meta.env.VITE_BACKEND_URL);
     setSocket(connection);
   }, []);
 
