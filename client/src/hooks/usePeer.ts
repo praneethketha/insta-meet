@@ -13,7 +13,11 @@ const usePeer = () => {
       isPeerSet.current = true;
       let myPeer;
       (async function initPeer() {
-        myPeer = new Peer();
+        myPeer = new Peer({
+          host: import.meta.env.VITE_PEER_HOST,
+          port: import.meta.env.VITE_PEER_PORT,
+          path: "/peerjs",
+        });
         setPeer(myPeer);
 
         myPeer.on("open", (id) => {
