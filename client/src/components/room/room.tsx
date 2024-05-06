@@ -219,7 +219,7 @@ const RoomInfo: FC<Props> = ({
   };
 
   return (
-    <main className="relative max-w-[1200px] max-h-[100dvh] w-full h-[100dvh] flex flex-row mx-auto border-x bg-gray-100">
+    <main className="relative max-w-[1200px] max-h-[100dvh] w-full h-[100dvh] flex flex-row mx-auto border-x bg-gray-100 overflow-hidden">
       <div className="flex-1 flex flex-col gap-6 md:p-6 overflow-hidden">
         <nav className="p-6 md:p-0 flex justify-between items-center bg-gray-100 sticky top-0 border-b md:border-none">
           <h3 className="font-bold md:font-extrabold text-xl md:text-2xl">
